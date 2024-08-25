@@ -6,7 +6,22 @@
   <introduction>
     <p> Text before the first section. </p>
   </introduction>
+  <worksheet xml:id="worksheet_1">
+    <title>Worksheet Title</title>
+    <p> Text of worksheet. </p>
+  </worksheet>
 
+  <worksheet xml:id="worksheet_2">
+    <title>Worksheet 2 Title</title>
+    <p> Text of worksheet. </p>
+    <exercise workspace="2in">
+      <statement>
+        <p>
+          Do this first.
+        </p>
+        </statement>
+    </exercise>
+  </worksheet>
   <!-- include sections -->
   <xi:include href="sec-section-name.ptx" />
 

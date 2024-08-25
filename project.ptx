@@ -4,5 +4,9 @@
   <targets>
     <target name="web" format="html" />
     <target name="print" format="pdf" />
+    <!-- Produce latex -->
+    <target name="latex" format="latex" />
+    <!-- Produce worksheets -->
+    <target name="worksheets" format="custom" xsl="pretext-latex-extras.xsl"/>
   </targets>
 </project>
