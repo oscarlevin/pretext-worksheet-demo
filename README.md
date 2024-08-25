@@ -1,19 +1,15 @@
-# PreTeXt Codespace
+# PreTeXt Worksheet Demo
 
-Use this template repository to quickly start a new [PreTeXt](https://pretextbook.org) project entirely in the cloud, using GitHub Codespaces.  
+This is an example of how I have hacked PreTeXt to create stand-alone worksheets that can be compiled by LaTeX.  To add this feature to your project, do the following:
 
-## Instructions
+1. In `project.ptx`, add a target for "worksheets",
 
-Look for the green button at the top right of this page.  If the button says `Use this template`, then you are ready to create a new repository for your project.  Click on the button and select "Create a new repository".  On the next page, give your project a name, select public or private (this can be changed later), and click the "Create repository from template" button.
+```xml
+    <target name="worksheets" format="custom" xsl="pretext-latex-extras.xsl"/>
+```
 
-You now have a GitHub repository saved in your account.  You can come back to that page any time you want to work on your project (note the URL or else find it in the list of your repositories when you log in to GitHub).
+2. Copy the `xsl` folder from this repository to your project.  This folder contains the `pretext-latex-extras.xsl` file that is needed to create the worksheets.
 
-To start work on your project, go to the green button at the top of *your* repository's page, which will say `<> Code`.  
+3. In `docinfo.ptx`, add two commands inside the `<macros>` element: `\def\thecourse{MATH 101}` and `\def\theterm{Fall 2024}`, changing them to match your course and term.
 
-1. Click on this button.
-2. Click on the tab that says "Codespaces."
-3. Click "Create codespace on main."
-
-This take a minute or two (just the first time; later this will be much faster) and then open a browser version of VS Code with everything set up to start working.  It will generate a new pretext book (and replace this README with one you can edit for your project). 
-
-Next time you want to work on your book, return to your newly created repository, go to the green `<> Code` button, and select the codespace you previously created.  If you don't see that codespace (perhaps you deleted it to save space), you can always create a new codespace.
+Now to create .tex files for all the worksheets in your book, simply run `pretext build worksheets`.  The resulting files will be put in `output/worksheets/`.  (This can be changed by adding `output-dir="activities"` as an attribute on the `worksheets` target in `project.ptx`.)
